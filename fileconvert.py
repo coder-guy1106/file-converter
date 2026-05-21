@@ -22,7 +22,12 @@ def select_file():
     im_label = ImageTk.PhotoImage(im)
     lab = tk.Label(root, image=im_label)
     lab.pack(fill='both',padx=10,pady=10)
+    filetype.config(text=im.format,font=("arial",15,"bold"))
+    for i in range(len(supported)):
+        if (supported[i].upper()==im.format):
+            list.delete(i)
     root.mainloop()
+
 
 
 
@@ -30,8 +35,8 @@ button1 = tk.Button(
     root,
     text='Open a File',
     command=select_file,
-    bg="azure4"
-    height=1
+    bg="azure4",
+    height=1,
     font=("arial",25,"bold")
 )
 
@@ -42,16 +47,16 @@ button1.pack(side="top",fill="x")
 right_ui = tk.Frame(root)
 right_ui.pack(side="right")
 
-filetype = tk.Label(text="No file selected")
+filetype = tk.Label(right_ui, text="No file selected",font=("arial",10,"bold"))
 filetype.pack(side="top")
 
-
-list = tk.Listbox(root)
+list = tk.Listbox(right_ui)
 for i in range(1,15):
     list.insert(i,supported[i-1])
 list.pack(side="right")
 
-
+convert=tk.Button(right_ui,text="Convert",font=("arial",5,"bold"))
+convert.pack(side="bottom")
 
 
 
