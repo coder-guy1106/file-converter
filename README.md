@@ -1,1 +1,1 @@
-a lightweight file converter on windows. It should be easy to use and accessable through the windows 11 right click menu
+A lightweight image file converter on windows using python, tkinter, and pillow. It is easy to use and supports a modest list of supported extentions.
